@@ -1,3 +1,9 @@
+# Danknet Explorer Browser
+For now, the Danknet Explorer is a web browser that attempts to return the internet browsing experience to its nostalgic roots of the 2010s
+
+_ _ _
+# Pale Moon Readme
+
 # Pale Moon web browser
 
 This is the source code for the Pale Moon web browser, an independent browser derived from Firefox/Mozilla community code. The source tree is
