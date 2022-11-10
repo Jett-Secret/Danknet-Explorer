@@ -2,18 +2,23 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include ../shared/searchenginelogos.js
+"use strict";
+
+/* import-globals-from ../contentSearchUI.js */
+
+// IndexedDB storage constants.
+const DATABASE_NAME = "abouthome";
+const DATABASE_VERSION = 1;
+const DATABASE_STORAGE = "persistent";
+var searchText;
 
 // This global tracks if the page has been set up before, to prevent double inits
 var gInitialized = false;
 var gObserver = new MutationObserver(function (mutations) {
   for (let mutation of mutations) {
-    if (mutation.attributeName == "searchEngineURL") {
-      setupSearchEngine();
-      if (!gInitialized) {
-        gInitialized = true;
-      }
-      return;
+    // The addition of the restore session button changes our width:
+    if (mutation.attributeName == "session") {
+      fitToWidth();
     }
   }
 });
@@ -22,8 +27,14 @@ window.addEventListener("pageshow", function () {
   // Delay search engine setup, cause browser.js::BrowserOnAboutPageLoad runs
   // later and may use asynchronous getters.
   window.gObserver.observe(document.documentElement, { attributes: true });
+  window.gObserver.observe(document.getElementById("launcher"), { attributes: true });
   fitToWidth();
+  setupSearch();
   window.addEventListener("resize", fitToWidth);
+
+  // Ask chrome to update snippets.
+  var event = new CustomEvent("AboutHomeLoad", {bubbles:true});
+  document.dispatchEvent(event);
 });
 
 window.addEventListener("pagehide", function() {
@@ -31,92 +42,74 @@ window.addEventListener("pagehide", function() {
   window.removeEventListener("resize", fitToWidth);
 });
 
-function onSearchSubmit(aEvent)
-{
-  let searchTerms = document.getElementById("searchText").value;
-  let searchURL = document.documentElement.getAttribute("searchEngineURL");
-
-  if (searchURL && searchTerms.length > 0) {
-    // Send an event that a search was performed. This was originally
-    // added so Firefox Health Report could record that a search from
-    // about:home had occurred.
-    let engineName = document.documentElement.getAttribute("searchEngineName");
-    let event = new CustomEvent("AboutHomeSearchEvent", {detail: engineName});
-    document.dispatchEvent(event);
-
-    const SEARCH_TOKEN = "_searchTerms_";
-    let searchPostData = document.documentElement.getAttribute("searchEnginePostData");
-    if (searchPostData) {
-      // Check if a post form already exists. If so, remove it.
-      const POST_FORM_NAME = "searchFormPost";
-      let form = document.forms[POST_FORM_NAME];
-      if (form) {
-        form.parentNode.removeChild(form);
-      }
-
-      // Create a new post form.
-      form = document.body.appendChild(document.createElement("form"));
-      form.setAttribute("name", POST_FORM_NAME);
-      // Set the URL to submit the form to.
-      form.setAttribute("action", searchURL.replace(SEARCH_TOKEN, searchTerms));
-      form.setAttribute("method", "post");
-
-      // Create new <input type=hidden> elements for search param.
-      searchPostData = searchPostData.split("&");
-      for (let postVar of searchPostData) {
-        let [name, value] = postVar.split("=");
-        if (value == SEARCH_TOKEN) {
-          value = searchTerms;
-        }
-        let input = document.createElement("input");
-        input.setAttribute("type", "hidden");
-        input.setAttribute("name", name);
-        input.setAttribute("value", value);
-        form.appendChild(input);
-      }
-      // Submit the form.
-      form.submit();
-   } else {
-      searchURL = searchURL.replace(SEARCH_TOKEN, encodeURIComponent(searchTerms));
-      window.location.href = searchURL;
-    }
+window.addEventListener("keypress", ev => {
+  if (ev.defaultPrevented) {
+    return;
   }
 
-  aEvent.preventDefault();
+  // don't focus the search-box on keypress if something other than the
+  // body or document element has focus - don't want to steal input from other elements
+  // Make an exception for <a> and <button> elements (and input[type=button|submit])
+  // which don't usefully take keypresses anyway.
+  // (except space, which is handled below)
+  if (document.activeElement && document.activeElement != document.body &&
+      document.activeElement != document.documentElement &&
+      !["a", "button"].includes(document.activeElement.localName) &&
+      !document.activeElement.matches("input:-moz-any([type=button],[type=submit])")) {
+    return;
+  }
+
+  let modifiers = ev.ctrlKey + ev.altKey + ev.metaKey;
+  // ignore Ctrl/Cmd/Alt, but not Shift
+  // also ignore Tab, Insert, PageUp, etc., and Space
+  if (modifiers != 0 || ev.charCode == 0 || ev.charCode == 32)
+    return;
+
+  searchText.focus();
+  // need to send the first keypress outside the search-box manually to it
+  searchText.value += ev.key;
+});
+
+function onSearchSubmit(aEvent)
+{
+  gContentSearchController.search(aEvent);
 }
 
 
-function setupSearchEngine()
+var gContentSearchController;
+
+function setupSearch()
 {
+  // Set submit button label for when CSS background are disabled (e.g.
+  // high contrast mode).
+  document.getElementById("searchSubmit").value =
+    document.body.getAttribute("dir") == "ltr" ? "\u25B6" : "\u25C0";
+
   // The "autofocus" attribute doesn't focus the form element
   // immediately when the element is first drawn, so the
   // attribute is also used for styling when the page first loads.
-  let searchText = document.getElementById("searchText");
+  searchText = document.getElementById("searchText");
   searchText.addEventListener("blur", function searchText_onBlur() {
     searchText.removeEventListener("blur", searchText_onBlur);
     searchText.removeAttribute("autofocus");
   });
- 
-  let searchEngineName = document.documentElement.getAttribute("searchEngineName");
-  let searchEngineInfo = SEARCH_ENGINES[searchEngineName];
-  let logoElt = document.getElementById("searchEngineLogo");
 
-  // Add search engine logo.
-  if (searchEngineInfo && searchEngineInfo.image) {
-    logoElt.parentNode.hidden = false;
-    logoElt.src = searchEngineInfo.image;
-    logoElt.alt = searchEngineName;
-    searchText.placeholder = "";
-  } else {
-    logoElt.parentNode.hidden = false;
-    logoElt.src = SEARCH_ENGINES['generic'].image;
-    searchText.placeholder = searchEngineName;
+  if (!gContentSearchController) {
+    gContentSearchController =
+      new ContentSearchUIController(searchText, searchText.parentNode,
+                                    "abouthome", "homepage");
   }
+}
 
+/**
+ * Inform the test harness that we're done loading the page.
+ */
+function loadCompleted()
+{
 }
 
 function fitToWidth() {
-  if (window.scrollMaxX) {
+  if (document.documentElement.scrollWidth > window.innerWidth) {
     document.body.setAttribute("narrow", "true");
   } else if (document.body.hasAttribute("narrow")) {
     document.body.removeAttribute("narrow");

@@ -9,25 +9,36 @@
  * Also make sure the labels are the same distance away from the icons.
  */
 .actionsMenu {
-  margin-top: 0;
-  margin-bottom: 0;
   margin-inline-start: -2px;
-  margin-inline-end: 0;
+  margin-top: 0;
+  margin-bottom: -1px;
+}
+
+#handlersView > richlistitem label {
+  margin-inline-start: 3px;
+  margin-top: 2px;
+}
+
+#handlersView > richlistitem {
+  min-height: 22px;
 }
 
 .typeIcon,
 .actionIcon {
   margin-inline-start: 3px;
-  margin-inline-end: 3px;
 }
 
-richlistitem label {
-  margin-inline-start: 1px;
-  margin-top: 2px;
+.typeIcon,
+.actionIcon,
+.actionsMenu .menulist-icon {
+  margin-inline-end: 2px;
 }
 
-richlistitem {
-  min-height: 22px;
+.actionsMenu > menupopup > menuitem > .menu-iconic-left {
+  /* Undo content/browser/preferences/handlers.css - we don't
+   * want icon-less labels to line up with the other labels.
+   */
+  min-width: 0;
 }
 
 richlistitem[appHandlerIcon="ask"],
@@ -37,7 +48,7 @@ menuitem[appHandlerIcon="ask"] {
 
 richlistitem[appHandlerIcon="save"],
 menuitem[appHandlerIcon="save"] {
-  list-style-image: url("chrome://browser/skin/preferences/application.png");
+  list-style-image: url("chrome://browser/skin/preferences/saveFile.png");
 }
 
 richlistitem[appHandlerIcon="feed"],
@@ -50,15 +61,13 @@ menuitem[appHandlerIcon="plugin"] {
   list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-16.png");
 }
 
-.actionsMenu .menulist-icon {
-  margin-inline-end: 3px;
+/* Repeat what menu.css does for .menuitem-iconic */
+menuitem[appHandlerIcon] {
+  padding-top: 1px;
+  padding-bottom: 3px;
 }
 
-.actionsMenu > menupopup > menuitem > .menu-iconic-left {
-  padding-inline-start: 0px;
-  padding-inline-end: 2px;
-}
-
-.actionsMenu > menupopup > menuitem {
-  padding-inline-start: 4px;
+menuitem[appHandlerIcon] > .menu-iconic-left > .menu-iconic-icon {
+  margin-inline-start: 0;
+  width: 16px;
 }

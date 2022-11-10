@@ -5,129 +5,106 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-/* Global Styles */
-#BrowserPreferences radio[pane] {
-  list-style-image: url("chrome://browser/skin/preferences/Options.png"); 
-  padding: 5px 3px 1px;
+%include ../../../../platform/toolkit/themes/osx/global/shared.inc
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+.windowDialog {
+  padding: 12px;
+  font: -moz-dialog;
 }
 
-radio[pane=paneMain] {
-  -moz-image-region: rect(0, 32px,  32px, 0);
+/* ----- APPLICATIONS PREFPANE ----- */
+description {
+  font: small-caption;
+  font-weight: normal;
+  line-height: 1.3em;
+  margin-bottom: 4px !important;
 }
 
-radio[pane=paneTabs] {
-  -moz-image-region: rect(0, 64px, 32px, 32px);
+prefpane .groupbox-body {
+  -moz-appearance: none;
+  padding: 8px 4px 4px 4px;
 }
 
-radio[pane=paneContent] {
-  -moz-image-region: rect(0, 96px,  32px, 64px);
+prefpane .groupbox-title {
+  background: url("chrome://global/skin/50pct_transparent_grey.png") repeat-x bottom left;
+  margin-bottom: 4px;
 }
 
-radio[pane=paneApplications] {
-  -moz-image-region: rect(0, 128px,  32px, 96px);
+tabpanels {
+  padding: 20px 7px 7px;
 }
 
-radio[pane=panePrivacy] {
-  -moz-image-region: rect(0, 160px,  32px, 128px);
+caption {
+  padding-inline-start: 5px;
+  padding-top: 4px;
+  padding-bottom: 2px;
 }
 
-radio[pane=paneSecurity] {
-  -moz-image-region: rect(0, 192px,  32px, 160px);
+#popupPolicyRow {
+  margin-bottom: 4px !important;
+  padding-bottom: 4px !important;
+  border-bottom: 1px solid #ccc;
 }
 
-radio[pane=paneAdvanced] {
-  -moz-image-region: rect(0, 224px, 32px, 192px);
+#browserUseCurrent,
+#browserUseBookmark,
+#browserUseBlank {
+  margin-top: 10px;
 }
 
-%ifdef MOZ_SERVICES_SYNC
-radio[pane=paneSync] {
-  list-style-image: url("chrome://browser/skin/preferences/Options-sync.png") !important;
-}
-%endif
-
-/* Applications Pane */
-#BrowserPreferences[animated="true"] #handlersView {
-  height: 25em;
-}
-
-#BrowserPreferences[animated="false"] #handlersView {
-  -moz-box-flex: 1;
-}
-
-/* Privacy Pane */
-
-/* styles for the link elements copied from .text-link in global.css */
-.inline-link {
-  color: -moz-nativehyperlinktext;
-  text-decoration: none;
-}
-
-.inline-link:hover {
-  text-decoration: underline;
-}
-
-/* Modeless Window Dialogs */
-.windowDialog,
-.windowDialog prefpane {
-  padding: 0;
-}
-
-#browserHomePage:-moz-locale-dir(rtl) input {
-  unicode-bidi: plaintext;
-  direction: rtl;
-}
-
-.contentPane {
-  margin: 9px 8px 5px;
-}
-
-.actionButtons {
-  margin: 0 3px 6px !important;
-}
-
-/* Cookies Manager */
-#cookiesChildren::-moz-tree-image(domainCol) {
-  width: 16px;
-  height: 16px;
-  margin: 0 2px;
-  list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png") !important;
-}
-
-#cookiesChildren::-moz-tree-image(domainCol, container),
-#cookiesChildren::-moz-tree-image(domainCol, container, open) {
-  list-style-image: url("chrome://global/skin/tree/folder.png") !important;
-}
-
-#cookieInfoBox {
-  border: 1px solid ThreeDShadow;
-  border-radius: 0;
-  margin: 4px;
-  padding: 0;
-}
-
-/* Advanced Pane */
-
-/* Adding padding-bottom prevents the bottom of the tabpanel from being cutoff
-   when browser.preferences.animateFadeIn = true */
 #advancedPrefs {
-  padding-bottom: 8px;
+  margin: 0 8px;
 }
 
-/* bottom-most box containing a groupbox in a prefpane. Prevents the bottom
-   of the groupbox from being cutoff */
-.bottomBox {
-  padding-bottom: 4px;
+#privacyPrefs {
+  padding: 0 4px;
 }
 
-%ifdef MOZ_SERVICES_SYNC
-/* Sync Pane */
+#privacyPrefs > tabpanels {
+  padding: 18px 10px 10px;
+}
+
+#OCSPDialogPane {
+  font: message-box !important;
+}
+
+/* General Pane */
+
+#useFirefoxSync,
+#getStarted {
+  font-size: 90%;
+}
+
+#isNotDefaultLabel {
+  font-weight: bold;
+}
+
+/**
+ * Update Preferences
+ */
+#autoInstallOptions {
+  margin-inline-start: 20px;
+}
+
+.updateControls {
+  margin-inline-start: 10px;
+}
+
+/**
+ * Clear Private Data
+ */
+#SanitizeDialogPane > groupbox {
+  margin-top: 0;
+}
+
+
+/* ----- SYNC PANE ----- */
 
 #syncDesc {
   padding: 0 8em;
-}
-
-.syncGroupBox {
-  padding: 10px;
 }
 
 #accountCaptionImage {
@@ -139,4 +116,11 @@ radio[pane=paneSync] {
   margin-bottom: 1em;
 }
 
-%endif
+#noFxaAccount {
+  margin: 12px 4px;
+  line-height: 1.2em;
+}
+
+#noFxaAccount > label:first-child {
+  margin-bottom: 0.6em;
+}

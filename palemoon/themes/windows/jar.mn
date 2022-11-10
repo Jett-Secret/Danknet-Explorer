@@ -62,6 +62,7 @@ browser.jar:
   skin/classic/browser/slowStartup-16.png
   skin/classic/browser/Toolbar.png
   skin/classic/browser/Toolbar-glass.png
+  skin/classic/browser/Toolbar-glass-2x.png
   skin/classic/browser/Toolbar-inverted.png
   skin/classic/browser/Toolbar.svg
   skin/classic/browser/Toolbar-glass.svg
