@@ -8,7 +8,7 @@
 # These values where appropriate are hardcoded in application.ini
 # to "Pale Moon" and "Moonchild Productions" respectively for
 # Pale Moon
-MOZ_APP_BASENAME=Palemoon 
+MOZ_APP_BASENAME=Palemoon
 MOZ_APP_VENDOR=Moonchild
 
 # Application Version

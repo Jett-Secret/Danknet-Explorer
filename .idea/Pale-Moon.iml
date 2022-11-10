@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/obj-i686-pc-mingw32" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/platform" />
+      <excludeFolder url="file://$MODULE_DIR$/other-licenses" />
+      <excludeFolder url="file://$MODULE_DIR$/config" />
+      <excludeFolder url="file://$MODULE_DIR$/palemoon/config" />
+      <excludeFolder url="file://$MODULE_DIR$/palemoon/installer" />
+      <excludeFolder url="file://$MODULE_DIR$/palemoon/locales" />
+      <excludeFolder url="file://$MODULE_DIR$/palemoon/modules" />
+      <excludeFolder url="file://$MODULE_DIR$/palemoon/app" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
