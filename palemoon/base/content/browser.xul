@@ -695,7 +695,7 @@
              lockiconsize="true"
              class="chromeclass-directories"
              context="toolbar-context-menu"
-             defaultset="personal-bookmarks"
+             defaultset="bookmarks-menu-button,history-menu-button,downloads-button"
              toolbarname="&personalbarCmd.label;" accesskey="&personalbarCmd.accesskey;"
              collapsed="false"
              customizable="true">

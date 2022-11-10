@@ -1,4 +1,10 @@
-<!ENTITY  brandShortName        "Pale Moon">
-<!ENTITY  brandFullName         "Pale Moon">
-<!ENTITY  vendorShortName       "Moonchild">
-<!ENTITY  trademarkInfo.part1   "The Pale Moon logo and project names are trademarks of Moonchild Productions (M.C. Straver BASc). All rights reserved.">
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY  brandShorterName      "DE">
+<!ENTITY  brandShortName        "Danknet Explorer">
+<!ENTITY  brandFullName         "Danknet Explorer">
+<!ENTITY  vendorShortName       "Jett Secret">
+<!ENTITY  vendorFullName        "Jett Secret">
+<!ENTITY  trademarkInfo.part1   " ">
