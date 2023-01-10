@@ -33,9 +33,10 @@
     <command id="cmd_close" oncommand="BrowserCloseTabOrWindow()"/>
     <command id="cmd_closeWindow" oncommand="BrowserTryToCloseWindow()"/>
 	<command id="cmd_toggleMute" oncommand="gBrowser.selectedTab.toggleMuteAudio()"/>
-    <command id="cmd_ToggleTabsOnTop" oncommand="TabsOnTop.toggle()"/>
+    <command id="cmd_ToggleTabsOnTop" oncommand="TabsOnTopDisabled(true)"/>
     <command id="cmd_CustomizeToolbars" oncommand="BrowserCustomizeToolbar()"/>
     <command id="cmd_restartApplication" oncommand="restart(false);"/>
+    <command id="cmd_msn" oncommand="checkAndOpenMsnEscargot();"/>
     <command id="cmd_quitApplication" oncommand="goQuitApplication()"/>
 
 

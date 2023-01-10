@@ -38,49 +38,38 @@
 <div class="spacer"/>
 <div id="topSection">
   <div id="brandLogo"></div>
-
+<!--
   <div id="searchIconAndTextContainer">
     <div id="searchIcon"/>
-    <!--<input type="text" name="q" value="" id="searchText" maxlength="256"
+    <!<input type="text" name="q" value="" id="searchText" maxlength="256"
            aria-label="&contentSearchInput.label;" autofocus="autofocus"/>
     <input id="searchSubmit" type="button" onclick="onSearchSubmit(event)"
-           title="&contentSearchSubmit.tooltip;"/>-->
-  </div>
+           title="&contentSearchSubmit.tooltip;"/>
+  </div>-->
   <div id="welcome">
-    <h2>Welcome to the Dank Web</h2>
-    <h4>What is the Dank Web?</h4>
-    <p>The Dank Web is a project started by Holden Milne in the year of 2021.  The idea is simple: Create a living, breathing time capsule of the internet from the mid-to-late noughts.  In other words, it's a fan restoration project for the internet.</p>
-    <h4>Motivation</h4>
-    <p>This project was directly inspired by a video released by Jan Misali on who wrote Caramelldansen.  In it they discuss the bizarre phenomenon that took the internet by storm, what the enablers of such a meme were, and how it became so iconic for the time.<br/><br/>
-      This to a nostalgic spiral which in turn lead to a few special obesarvations that differentiate the old internet (which will be referred to as the Internet) from the modern internet or what we'll call the Neonet.  I want to make very clear, these observations do not indicate that the internet of yore is necessarily better.  These are just observed distinctions.
-      <ol>
-        <li>
-          The Neonet is perfect.
-        </li><ld>Almost every website developed on the Neonet is developed by teams of skilled devs with packages that are developed by teams of even more skilled devs.  This is actually kind of a good thing.  With large teams and large pools of money available, security fixes can come very quickly and that's really what you want when doing most things on the Neonet.  This also means that animations are done with pin-prick accuracy.  Colors are specially selected to match to an exact degree.  Every UI element matches stylistically.  Aesthetically, it's very pleasing.  <br/><br/>
-        But here's the problem. Gone are the days when 3 teenagers could just write a website and host it in their garage and have it be successful.  Gone are the days when things could look bad and still be fun.  Gone are the days of flash player.  This time on the Internet was a great time to explorer and do dumb shit.  Teach yourself to code because you had a dream, not because capitalism has your wallet set to dry and you're interested in eating a warm meal for once.  On the Neonet, there is no room for error, no room for screwing around, no room for making an ass of yourself.</ld>
-        <li>No one <i>goes on</i> the Neonet</li><ld>
-        This will read like a boomer complaint hotline transcript, but no one actually <i>goes on</i> the Neonet.  Instead everyone is <b>always</b> on the internet.  You can simply open your phone, check your notifications and respond to a message without ever having to even go to a website.  Again, that's kind of sick.  The accessibility is through the roof.  But it makes the Neonet feel less significant.  It's part of your life almost as much as breathing is.  Recall coming home from high school (if you can) and thinking <i>I'm going to message my friends on MSN Messenger</i> and you login to the family computer, open the MSN messenger app and see if your friends are online too.  Or maybe you open up Neopets or Gaia Online in your favorite browser and see what's happening in the forums, play some games etc.  But not one of those things can be done without actively thinking about doing them.  The internet was not a place of casual idle-ism.  Instead it was active idle-ism.
-      </ld>
-        <li>Neonet meme's are the template, not thing.</li><ld>
-        When a meme goes viral it is seldom, if at all, the thing itself that goes viral.  The Internet certainly had memes of this format, Bad Luck Brian, Philosoraptor etc. but Caramelldansen is a great example of the meme of the thing, not the format itself.  The song, and the dance both became internet sensations.  The closest analog to Caramelldansen on the Neonet is flossing, which is a dance that requires quite a bit of coordination and became cringe after it was meme'd to death.  Just like the Neonet, flossing is kind of perfect, and in and of itself isn't cringe.  Caramelldansen was cringy from day 1 and that didn't stop anyone.  Because it was dumb and it was fun.
-      </ld>
-      </ol>
-
-      These things together are some of the key differences between the Internet and the Neonet.  So the goal with the Dank Web is to create a section of the internet (while still maintaining some level of security, and mediation) that exists as a place that user can actually <i>go on</i>.  Perhaps one where the nostalgic millennials like myself can relive the time they took for granted, or other generations can experience the time when the internet was a <i>thing</i>.  When it was a beautiful, chaotic mess.  That is the goal for the Dank Web.
-    </p>
+    <h2>Welcome to the Danknet Explorer</h2>
   </div>
-</div>
-<div class="spacer"/>
 
-<div id="launcher">
-  <button class="launchButton" id="downloads">abouthome.downloadsButton.label;</button>
-  <button class="launchButton" id="bookmarks">abouthome.bookmarksButton.label;</button>
-  <button class="launchButton" id="history">abouthome.historyButton.label;</button>
-  <button class="launchButton" id="addons">abouthome.addonsButton.label;</button>
-  <button class="launchButton" id="sync">abouthome.syncButton.label;</button>
-  <button class="launchButton" id="settings">abouthome.preferencesButtonWin.label;</button>
-  <div id="restorePreviousSessionSeparator"/>
-  <button class="launchButton" id="restorePreviousSession">historyRestoreLastSession.label;</button>
+
+</div>
+<div class="spacer"/><div id="bottomSection">
+  <div id="checkout-wrapper">
+    <hr></hr>
+    <div><h4>Why don't you start by checking out these cool sites!</h4></div>
+    <div id="coolsites" style="display:flex;flex-direction: row;justify-content: center;">
+      <a class="cool-site" href="https://yesterweb.org" style="display:flex;flex-direction: column;justify-content: center;align-items: center;"><img src="chrome://browser/content/abouthome/yesterweb.png" width="32px" height="32px"/><p>Yesterweb</p></a>
+
+      <a class="cool-site" href="https://escargot.chat" style="display:flex;flex-direction: column;justify-content: center;align-items: center;"><img src="chrome://browser/content/abouthome/escargot.png" width="32px" height="32px"/><p>Escargot</p></a>
+
+      <a class="cool-site" href="https://neocities.org" style="display:flex;flex-direction: column;justify-content: center;align-items: center;"><img src="chrome://browser/content/abouthome/neocities.png" width="32px" height="32px"/><p>Neocities</p></a>
+
+        <a class="cool-site" href="https://www.goatlings.com/" style="display:flex;flex-direction: column;justify-content: center;align-items: center;"><img src="chrome://browser/content/abouthome/goatlings.png" width="32px" height="32px"/><p>Goatlings</p></a>
+
+        <a class="cool-site" href="https://blinkies.cafe/" style="display:flex;flex-direction: column;justify-content: center;align-items: center;"><img src="chrome://browser/content/abouthome/blinkies.png" width="32px" height="32px"/><p>Blinkies.cafe</p></a>
+
+
+    </div>
+  </div>
 </div>
 
 </body>

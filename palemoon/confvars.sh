@@ -8,8 +8,8 @@
 # These values where appropriate are hardcoded in application.ini
 # to "Pale Moon" and "Moonchild Productions" respectively for
 # Pale Moon
-MOZ_APP_BASENAME=Palemoon
-MOZ_APP_VENDOR=Moonchild
+MOZ_APP_BASENAME=palemoon
+MOZ_APP_VENDOR=JettSecret
 
 # Application Version
 # MOZ_APP_VERSION is read from ./config/version.txt
@@ -85,7 +85,7 @@ MOZ_WEBGL_CONFORMANT=1
 
 # Platform Feature: Enable drawing in the titlebar on Windows
 if test "$OS_ARCH" = "WINNT"; then
-  MOZ_CAN_DRAW_IN_TITLEBAR=1
+  MOZ_CAN_DRAW_IN_TITLEBAR=0
 fi
 
 # Set the chrome packing format
