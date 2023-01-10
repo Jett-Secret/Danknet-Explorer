@@ -5,14 +5,14 @@
 
        <menubar id="main-menubar"
                 onpopupshowing="if (event.target.parentNode.parentNode == this &amp;&amp;
-#ifdef MOZ_WIDGET_GTK
-                                    document.documentElement.getAttribute('shellshowingmenubar') != 'true')
+#ifndef MOZ_WIDGET_GTK
+                                    document.documentElement.getAttribute('shellshowingmenubar') == 'true')
 #else
                                     !('@mozilla.org/widget/nativemenuservice;1' in Cc))
 #endif
                                   this.setAttribute('openedwithkey',
                                                     event.target.parentNode.openedWithKey);"
-                style="border:0px;padding:0px;margin:0px;-moz-appearance:none">
+                style="border:0px;padding:0px;margin:0px;">
             <menu id="file-menu" label="&fileMenu.label;"
                   accesskey="&fileMenu.accesskey;">
               <menupopup id="menu_FilePopup">
@@ -137,6 +137,11 @@
                           key="key_copy"
                           accesskey="&copyCmd.accesskey;"
                           command="cmd_copy"/>
+                <menuitem id="menu_msn"
+                          label="msn"
+                          key="key_copy"
+                          accesskey="&copyCmd.accesskey;"
+                          command="cmd_copy"/>
                 <menuitem id="menu_paste"
                           label="&pasteCmd.label;"
                           key="key_paste"
@@ -183,7 +188,7 @@
                       label="&viewToolbarsMenu.label;"
                       accesskey="&viewToolbarsMenu.accesskey;">
                   <menupopup onpopupshowing="onViewToolbarsPopupShowing(event);">
-                    <menuseparator/>
+                    <menuseparator class="groove"/>
                     <menuitem id="menu_tabsOnTop"
                               command="cmd_ToggleTabsOnTop"
                               type="checkbox"
@@ -565,4 +570,5 @@
           <menu id="windowMenu" />
 #endif
           <menu id="helpMenu" />
+
         </menubar>

@@ -36,7 +36,7 @@ a {
   -moz-box-flex: 1;
 }
 
-#topSection {
+#topSection,#bottomSection {
   text-align: center;
 }
 
@@ -410,3 +410,18 @@ body[narrow] #restorePreviousSession::before {
   }
 }
 
+#checkout-wrapper{
+  padding-bottom: 2em;
+  background-color:#EFEEE1aa;
+}
+.cool-site{
+  margin:0 .5em;
+  padding:.5em .25em 0 .25em ;
+  border:solid transparent 1px;
+}
+
+.cool-site:hover{
+  border-color:gray;
+  background-color: #aaeafa88;
+  border-radius: 5px;
+}

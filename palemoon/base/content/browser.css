@@ -94,9 +94,17 @@ toolbar[printpreview="true"] {
   -moz-box-ordinal-group: 5;
 }
 
-#navigator-toolbox > toolbar:not(#toolbar-menubar):not(#TabsToolbar) {
-  -moz-box-ordinal-group: 50;
+#navigator-toolbox > toolbar:not(#toolbar-menubar):not(#TabsToolbar):not(#PersonalToolbar):not(#nav-bar) {
+  -moz-box-ordinal-group: 70;
 }
+
+#nav-bar{
+  -moz-box-ordinal-group:50;
+}
+#PersonalToolbar{
+  -moz-box-ordinal-group: 60;
+}
+
 
 #TabsToolbar {
   -moz-box-ordinal-group: 100;

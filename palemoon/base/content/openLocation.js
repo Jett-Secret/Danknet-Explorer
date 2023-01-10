@@ -85,6 +85,7 @@ function open() {
 }
 
 function openLocation(openData) {
+  alert("HERE<<!!")
   try {
     // Whichever target we use for the load, we allow third-party services to
     // fix up the URI

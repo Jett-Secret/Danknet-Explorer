@@ -49,6 +49,8 @@
              oncommand="goDoPlacesCommand('placesCmd_open');"/>
     <command id="placesCmd_open:window"
              oncommand="goDoPlacesCommand('placesCmd_open:window');"/>
+    <command id="placesCmd_msn"
+             oncommand="goDoPlacesCommand('placesCmd_open:window');"/>
     <command id="placesCmd_open:privatewindow"
              oncommand="goDoPlacesCommand('placesCmd_open:privatewindow');"/>
     <command id="placesCmd_open:tab"

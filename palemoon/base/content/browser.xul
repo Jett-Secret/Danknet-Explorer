@@ -28,7 +28,7 @@
 # Automatic browser recovery
 <?xul-overlay href="chrome://browser/content/autorecovery.xul"?>
 
- 
+
 # All DTD information is stored in a separate file so that it can be shared by
 # hiddenWindow.xul.
 #include browser-doctype.inc
@@ -134,7 +134,7 @@
     <panel type="private-autocomplete" id="PopupAutoComplete" noautofocus="true" hidden="true"/>
 
     <!-- for url bar autocomplete -->
-    <panel type="private-autocomplete-richlistbox" id="PopupAutoCompleteRichResult" noautofocus="true" hidden="true"/> 
+    <panel type="private-autocomplete-richlistbox" id="PopupAutoCompleteRichResult" noautofocus="true" hidden="true"/>
 
     <!-- for date/time picker. consumeoutsideclicks is set to never, so that
          clicks on the anchored input box are never consumed. -->
@@ -376,16 +376,33 @@
       <hbox class="titlebar-placeholder" type="appmenu-button" ordinal="0"/>
       <hbox class="titlebar-placeholder" type="caption-buttons" ordinal="1000"/>
 #endif
+      <spacer flex="60"></spacer>
+
+      <separator orient="vertical" class="groove"/>
+
+      <toolbaritem id="menu-logo-toolbar" flex="1" align="right" right="0">
+          <hbox flex="1" id="menu-logo-box"
+                align="center">
+              <spacer flex="1"></spacer>
+              <image id="menubar-logo-img" flex="1" align="center"/>
+              <spacer flex="1"></spacer></hbox>
+      </toolbaritem>
+      <!--<toolbaritem id="menu-logo-toolbar" flex="1" align="right" right="0">
+      <hbox flex="1" id="menu-logo-box"
+            align="center" right="0">
+          <image id="menubar-logo-img"/></hbox>
+      </toolbaritem>-->
     </toolbar>
 
+    <separator class="groove" ordinal="33"/>
     <toolbar id="nav-bar" class="toolbar-primary chromeclass-toolbar"
              toolbarname="&navbarCmd.label;" accesskey="&navbarCmd.accesskey;"
              fullscreentoolbar="true" mode="icons" customizable="true"
              iconsize="large"
-             defaultset="unified-back-forward-button,reload-button,stop-button,home-button,urlbar-container,search-container,bookmarks-menu-button,history-menu-button,downloads-button,window-controls"
+             defaultset="unified-back-forward-button,reload-button,stop-button,home-button,bookmarks-menu-button,history-menu-button,msn-button,downloads-button,window-controls"
              context="toolbar-context-menu">
 
-      <toolbaritem id="unified-back-forward-button" class="chromeclass-toolbar-additional"
+        <toolbaritem id="unified-back-forward-button" class="chromeclass-toolbar-additional"
                    context="backForwardMenu" removable="true"
                    forwarddisabled="true"
                    title="&backForwardItem.title;">
@@ -429,113 +446,7 @@
                      onclick="BrowserGoHome(event);"
                      aboutHomeOverrideTooltip="&abouthome.pageTitle;"/>
 
-      <toolbaritem id="urlbar-container" align="center" flex="400" persist="width" combined="true"
-                   title="&locationItem.title;" class="chromeclass-location" removable="true">
-        <textbox id="urlbar" flex="1"
-                 placeholder=""
-                 type="private-autocomplete"
-                 autocompletesearch="urlinline history"
-                 autocompletesearchparam="enable-actions"
-                 autocompletepopup="PopupAutoCompleteRichResult"
-                 completeselectedindex="true"
-                 tabscrolling="true"
-                 showcommentcolumn="true"
-                 showimagecolumn="true"
-                 enablehistory="true"
-                 maxrows="6"
-                 newlines="stripsurroundingwhitespace"
-                 oninput="gBrowser.userTypedValue = this.value;"
-                 ontextentered="this.handleCommand(param);"
-                 ontextreverted="return this.handleRevert();"
-                 pageproxystate="invalid"
-                 onfocus="document.getElementById('identity-box').style.MozUserFocus= 'normal'"
-                 onblur="setTimeout(function() document.getElementById('identity-box').style.MozUserFocus = '', 0);">
-          <box id="notification-popup-box" hidden="true" align="center">
-            <image id="default-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="geo-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="addons-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="indexedDB-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="password-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="plugins-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="web-notifications-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="alert-plugins-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="blocked-plugins-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="mixed-content-blocked-notification-icon" class="notification-anchor-icon" role="button"/>
-#ifdef MOZ_WEBRTC
-            <image id="webRTC-shareDevices-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="webRTC-sharingDevices-notification-icon" class="notification-anchor-icon" role="button"/>
-#endif
-            <image id="pointerLock-notification-icon" class="notification-anchor-icon" role="button"/>
-            <image id="servicesInstall-notification-icon" class="notification-anchor-icon" role="button"/>
-          </box>
-          <!-- Use onclick instead of normal popup= syntax since the popup
-               code fires onmousedown, and hence eats our favicon drag events.
-               We only add the identity-box button to the tab order when the location bar
-               has focus, otherwise pressing F6 focuses it instead of the location bar -->
-          <box id="identity-box" role="button"
-               align="center"
-               onclick="gIdentityHandler.handleIdentityButtonEvent(event);"
-               onkeypress="gIdentityHandler.handleIdentityButtonEvent(event);"
-               ondragstart="gIdentityHandler.onDragStart(event);">
-            <image id="page-proxy-favicon"
-                   onclick="PageProxyClickHandler(event);"
-                   pageproxystate="invalid"/>
-            <hbox id="identity-icon-labels">
-              <label id="identity-icon-label" class="plain" flex="1"/>
-              <label id="identity-icon-country-label" class="plain"/>
-            </hbox>
-          </box>
-          <box id="urlbar-display-box" align="center">
-            <label id="urlbar-display" value="&urlbar.switchToTab.label;"/>
-          </box>
-          <hbox id="urlbar-icons">
-            <image id="page-report-button"
-                   class="urlbar-icon"
-                   hidden="true"
-                   tooltiptext="&pageReportIcon.tooltip;"
-                   onclick="gPopupBlockerObserver.onReportButtonClick(event);"/>
-            <button type="menu"
-                    style="-moz-user-focus: none"
-                    class="plain urlbar-icon"
-                    id="ub-feed-button"
-                    collapsed="true"
-                    tooltiptext="&feedButton.tooltip;"
-                    onclick="return FeedHandler.onFeedButtonPMClick(event);">
-              <menupopup position="after_end"
-                         id="ub-feed-menu"
-                         onpopupshowing="return FeedHandler.buildFeedList(this);"
-                         oncommand="return FeedHandler.subscribeToFeed(null, event);"
-                         onclick="checkForMiddleClick(this, event);"/>
-            </button>                   
-            <image id="star-button"
-                   class="urlbar-icon"
-                   onclick="BookmarkingUI.onCommand(event);"/>
-            <image id="go-button"
-                   class="urlbar-icon"
-                   tooltiptext="&goEndCap.tooltip;"
-                   onclick="gURLBar.handleCommand(event);"/>
-          </hbox>
-          <toolbarbutton id="urlbar-go-button"
-                         class="chromeclass-toolbar-additional"
-                         onclick="gURLBar.handleCommand(event);"
-                         tooltiptext="&goEndCap.tooltip;"/>
-          <toolbarbutton id="urlbar-reload-button"
-                         class="chromeclass-toolbar-additional"
-                         command="Browser:ReloadOrDuplicate"
-                         onclick="checkForMiddleClick(this, event);"
-                         tooltiptext="&reloadButton.tooltip;"/>
-          <toolbarbutton id="urlbar-stop-button"
-                         class="chromeclass-toolbar-additional"
-                         command="Browser:Stop"
-                         tooltiptext="&stopButton.tooltip;"/>
-        </textbox>
-      </toolbaritem>
 
-      <toolbaritem id="search-container" title="&searchItem.title;"
-                   align="center" class="chromeclass-toolbar-additional"
-                   flex="100" persist="width" removable="true">
-        <searchbar id="searchbar" flex="1"/>
-      </toolbaritem>
 #ifdef MOZ_WEBRTC
       <toolbarbutton id="webrtc-status-button"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
@@ -640,7 +551,7 @@
       <toolbarbutton id="history-menu-button"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
                      persist="class"
-                     removable="true"                     
+                     removable="true"
                      type="menu"
                      label="&historyButton.label;"
                      tooltiptext="&historyButton.tooltip;"
@@ -718,19 +629,131 @@
       </hbox>
     </toolbar>
 
+    <separator class="groove" ordinal="51"/>
     <toolbarset id="customToolbars" context="toolbar-context-menu"/>
 
     <toolbar id="PersonalToolbar"
-             mode="icons" iconsize="small" defaulticonsize="small"
-             lockiconsize="true"
-             class="chromeclass-directories"
+             mode="icons" iconsize="large" defaulticonsize="large"
+             class="chromeclass-toolbar"
              context="toolbar-context-menu"
-             defaultset="bookmarks-menu-button,history-menu-button,downloads-button"
+             defaultset="urlbar-container,search-container"
              toolbarname="&personalbarCmd.label;" accesskey="&personalbarCmd.accesskey;"
              collapsed="false"
              customizable="true">
+
+        <toolbaritem id="urlbar-container" align="center" flex="400" persist="width" combined="true"
+                     title="&locationItem.title;" class="chromeclass-location" removable="true">
+
+            <label id="address-text" value="Address"/>
+
+            <textbox id="urlbar" flex="1"
+                     placeholder=""
+                     type="private-autocomplete"
+                     autocompletesearch="urlinline history"
+                     autocompletesearchparam="enable-actions"
+                     autocompletepopup="PopupAutoCompleteRichResult"
+                     completeselectedindex="true"
+                     tabscrolling="true"
+                     showcommentcolumn="true"
+                     showimagecolumn="true"
+                     enablehistory="true"
+                     maxrows="6"
+                     newlines="stripsurroundingwhitespace"
+                     oninput="gBrowser.userTypedValue = this.value;"
+                     ontextentered="this.handleCommand(param);"
+                     ontextreverted="return this.handleRevert();"
+                     pageproxystate="invalid"
+                     onfocus="document.getElementById('identity-box').style.MozUserFocus= 'normal'"
+                     onblur="setTimeout(function() document.getElementById('identity-box').style.MozUserFocus = '', 0);">
+                <box id="notification-popup-box" hidden="true" align="center">
+                    <image id="default-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="geo-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="addons-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="indexedDB-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="password-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="plugins-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="web-notifications-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="alert-plugins-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="blocked-plugins-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="mixed-content-blocked-notification-icon" class="notification-anchor-icon" role="button"/>
+                    #ifdef MOZ_WEBRTC
+                    <image id="webRTC-shareDevices-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="webRTC-sharingDevices-notification-icon" class="notification-anchor-icon" role="button"/>
+                    #endif
+                    <image id="pointerLock-notification-icon" class="notification-anchor-icon" role="button"/>
+                    <image id="servicesInstall-notification-icon" class="notification-anchor-icon" role="button"/>
+                </box>
+                <!-- Use onclick instead of normal popup= syntax since the popup
+                     code fires onmousedown, and hence eats our favicon drag events.
+                     We only add the identity-box button to the tab order when the location bar
+                     has focus, otherwise pressing F6 focuses it instead of the location bar -->
+                <box id="identity-box" role="button"
+                     align="center"
+                     onclick="gIdentityHandler.handleIdentityButtonEvent(event);"
+                     onkeypress="gIdentityHandler.handleIdentityButtonEvent(event);"
+                     ondragstart="gIdentityHandler.onDragStart(event);">
+                    <image id="page-proxy-favicon"
+                           onclick="PageProxyClickHandler(event);"
+                           pageproxystate="invalid"/>
+                    <hbox id="identity-icon-labels">
+                        <label id="identity-icon-label" class="plain" flex="1"/>
+                        <label id="identity-icon-country-label" class="plain"/>
+                    </hbox>
+                </box>
+                <box id="urlbar-display-box" align="center">
+                    <label id="urlbar-display" value="&urlbar.switchToTab.label;"/>
+                </box>
+                <hbox id="urlbar-icons">
+                    <image id="page-report-button"
+                           class="urlbar-icon"
+                           hidden="true"
+                           tooltiptext="&pageReportIcon.tooltip;"
+                           onclick="gPopupBlockerObserver.onReportButtonClick(event);"/>
+                    <button type="menu"
+                            style="-moz-user-focus: none"
+                            class="plain urlbar-icon"
+                            id="ub-feed-button"
+                            collapsed="true"
+                            tooltiptext="&feedButton.tooltip;"
+                            onclick="return FeedHandler.onFeedButtonPMClick(event);">
+                        <menupopup position="after_end"
+                                   id="ub-feed-menu"
+                                   onpopupshowing="return FeedHandler.buildFeedList(this);"
+                                   oncommand="return FeedHandler.subscribeToFeed(null, event);"
+                                   onclick="checkForMiddleClick(this, event);"/>
+                    </button>
+                    <image id="star-button"
+                           class="urlbar-icon"
+                           onclick="BookmarkingUI.onCommand(event);"/>
+                    <image id="go-button"
+                           class="urlbar-icon"
+                           tooltiptext="&goEndCap.tooltip;"
+                           onclick="gURLBar.handleCommand(event);"/>
+                </hbox>
+                <toolbarbutton id="urlbar-go-button"
+                               class="chromeclass-toolbar-additional"
+                               onclick="gURLBar.handleCommand(event);"
+                               tooltiptext="&goEndCap.tooltip;"/>
+                <toolbarbutton id="urlbar-reload-button"
+                               class="chromeclass-toolbar-additional"
+                               command="Browser:ReloadOrDuplicate"
+                               onclick="checkForMiddleClick(this, event);"
+                               tooltiptext="&reloadButton.tooltip;"/>
+                <toolbarbutton id="urlbar-stop-button"
+                               class="chromeclass-toolbar-additional"
+                               command="Browser:Stop"
+                               tooltiptext="&stopButton.tooltip;"/>
+            </textbox>
+        </toolbaritem>
+
+        <toolbaritem id="search-container" title="&searchItem.title;"
+                     align="center" class="chromeclass-toolbar-additional"
+                     flex="100" persist="width" removable="true">
+            <searchbar id="searchbar" flex="1"/>
+        </toolbaritem>
       </toolbar>
 
+    <separator class="groove" ordinal="71"/>
 #ifdef MENUBAR_CAN_AUTOHIDE
 #ifndef MOZ_CAN_DRAW_IN_TITLEBAR
 #define APPMENU_ON_TABBAR
@@ -844,7 +867,6 @@
       <hbox class="titlebar-placeholder" type="caption-buttons" ordinal="1000"/>
 #endif
     </toolbar>
-
     <toolbarpalette id="BrowserToolbarPalette">
 
 # Update primaryToolbarButtons in browser/themes/shared/browser.inc when adding
@@ -923,10 +945,14 @@
                      command="cmd_cut"
                      tooltiptext="&cutButton.tooltip;"/>
 
-      <toolbarbutton id="copy-button" class="toolbarbutton-1 chromeclass-toolbar-additional"
-                     label="&copyCmd.label;"
-                     command="cmd_copy"
-                     tooltiptext="&copyButton.tooltip;"/>
+        <toolbarbutton id="copy-button" class="toolbarbutton-1 chromeclass-toolbar-additional"
+                       label="&copyCmd.label;"
+                       command="cmd_copy"
+                       tooltiptext="&copyButton.tooltip;"/>
+        <toolbarbutton id="msn-button" class="toolbarbutton-1 chromeclass-toolbar-additional"
+                       label="MSN Messenger"
+                       command="cmd_msn"
+                       tooltiptext="Open Escargot's MSN or Windows Live Messenger"/>
 
       <toolbarbutton id="paste-button" class="toolbarbutton-1 chromeclass-toolbar-additional"
                      label="&pasteCmd.label;"

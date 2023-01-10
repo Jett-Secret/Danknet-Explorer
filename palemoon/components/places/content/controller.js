@@ -111,9 +111,10 @@ PlacesController.prototype = {
     case "cmd_undo":
     case "cmd_redo":
     case "cmd_cut":
-    case "cmd_copy":
+      case "cmd_copy":
+      case "cmd_msn":
     case "cmd_paste":
-    case "cmd_delete":
+      case "cmd_delete":
     case "cmd_selectAll":
       return true;
     }
@@ -126,7 +127,7 @@ PlacesController.prototype = {
 
   isCommandEnabled: function(aCommand) {
     switch (aCommand) {
-    case "cmd_undo":
+      case "cmd_undo":
       return PlacesUtils.transactionManager.numberOfUndoItems > 0;
     case "cmd_redo":
       return PlacesUtils.transactionManager.numberOfRedoItems > 0;
@@ -159,7 +160,10 @@ PlacesController.prototype = {
           return true;
       }
       return false;
-    case "placesCmd_open":
+      case "cmd_msn":
+      case "placesCmd_msn":
+        return true;
+      case "placesCmd_open":
     case "placesCmd_open:window":
     case "placesCmd_open:privatewindow":
     case "placesCmd_open:tab":
@@ -240,6 +244,8 @@ PlacesController.prototype = {
     case "placesCmd_open":
       PlacesUIUtils.openNodeIn(this._view.selectedNode, "current", this._view);
       break;
+    case "cmd_msn":
+    case "placesCmd_msn":
     case "placesCmd_open:window":
       PlacesUIUtils.openNodeIn(this._view.selectedNode, "window", this._view);
       break;
@@ -1845,6 +1851,7 @@ function goUpdatePlacesCommands() {
   }
 
   updatePlacesCommand("placesCmd_open");
+  //updatePlacesCommand("placesCmd_msn");
   updatePlacesCommand("placesCmd_open:window");
   updatePlacesCommand("placesCmd_open:privatewindow");
   updatePlacesCommand("placesCmd_open:tab");
@@ -1893,7 +1900,10 @@ function doGetPlacesControllerForCommand(aCommand)
 function goDoPlacesCommand(aCommand)
 {
   let controller = doGetPlacesControllerForCommand(aCommand);
+
+  alert("places:"+aCommand);
   if (controller && controller.isCommandEnabled(aCommand))
     controller.doCommand(aCommand);
+
 }
 
