@@ -568,6 +568,7 @@
           supportsCommand: function(aCommand) {
             switch (aCommand) {
               case "cmd_copy":
+              case "cmd_msn":
               case "cmd_cut":
                 return true;
             }

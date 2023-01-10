@@ -1281,6 +1281,11 @@ DownloadsViewItemController.prototype = {
                              NetUtil.newURI(this.download.source.url));
     },
 
+    cmd_msn:function()
+    {
+
+    },
+
     downloadsCmd_cancel: function()
     {
       this.download.cancel().catch(() => {});

@@ -7,6 +7,11 @@ browser.jar:
 * content/browser/abouthome/aboutHome.js
 * content/browser/abouthome/aboutHome.css
   content/browser/abouthome/downloads.png
+  content/browser/abouthome/goatlings.png
+  content/browser/abouthome/yesterweb.png
+  content/browser/abouthome/blinkies.png
+  content/browser/abouthome/escargot.png
+  content/browser/abouthome/neocities.png
   content/browser/abouthome/bookmarks.png
   content/browser/abouthome/history.png
   content/browser/abouthome/addons.png

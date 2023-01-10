@@ -3219,6 +3219,29 @@ function OpenBrowserWindow(options)
   return win;
 }
 
+
+function checkAndOpenMsnEscargot()
+{
+  // here looks promising? https://firefox-source-docs.mozilla.org/xpcom/writing-xpcom-interface.html
+  //check if escargot is installed
+  //if yes open it
+  // else open url
+  let path = "C:\\Program Files (x86)\\MSN Messenger\\msnmsgr.exe"
+  let exists = false
+  if(exists)
+  {
+    //open program??
+  }else{
+    loadURI("www.escargot.chat");
+  }
+}
+
+function TabsOnTopDisabled(disabled){
+if(disabled)
+{
+  alert("Sorry, Tabs on Top is disabled :(");
+}else{TabsOnTop.toggle()}
+}
 var gCustomizeSheet = false;
 function BrowserCustomizeToolbar() {
   // Disable the toolbar context menu items
@@ -3431,6 +3454,7 @@ function updateEditUIVisibility() {
     goSetCommandEnabled("cmd_redo", true);
     goSetCommandEnabled("cmd_cut", true);
     goSetCommandEnabled("cmd_copy", true);
+    goSetCommandEnabled("cmd_msn", true);
     goSetCommandEnabled("cmd_paste", true);
     goSetCommandEnabled("cmd_selectAll", true);
     goSetCommandEnabled("cmd_delete", true);

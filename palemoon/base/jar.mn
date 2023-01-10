@@ -39,6 +39,7 @@ browser.jar:
   content/browser/padlock_classic_low.png       (content/padlock_classic_low.png)
   content/browser/padlock_classic_mixed.png     (content/padlock_classic_mixed.png)
   content/browser/padlock_classic_broken.png    (content/padlock_classic_broken.png)
+  content/browser/winlog.png                    (content/winlog.png)
   content/browser/palemoon.xhtml                (content/palemoon.xhtml)
   content/browser/openLocation.js               (content/openLocation.js)
   content/browser/openLocation.xul              (content/openLocation.xul)
