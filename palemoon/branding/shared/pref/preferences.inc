@@ -1,8 +1,8 @@
 // ===| General |==============================================================
 
-pref("startup.homepage_welcome_url","http://www.palemoon.org/firstrun.shtml");
+pref("startup.homepage_welcome_url","http://jettsecret.neocities.org/dne/firstrun.html");
 
-pref("app.vendorURL", "http://www.palemoon.org/");
+pref("app.vendorURL", "http://jettsecret.neocities.org");
 
 
 // User Interface

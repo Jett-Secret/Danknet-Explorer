@@ -1,2 +1,2 @@
-MOZ_APP_DISPLAYNAME="Pale Moon"
+MOZ_APP_DISPLAYNAME="Danknet Explorer"
 

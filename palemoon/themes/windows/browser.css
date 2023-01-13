@@ -12,7 +12,9 @@
 %define toolbarShadowColor rgba(10%,10%,10%,.4)
 %define toolbarShadowOnTab linear-gradient(to top, rgba(10%,10%,10%,.4) 1px, transparent 1px)
 %define navbarTextboxCustomBorder border-color: rgba(0,0,0,.32);
-%define navbarLargeIcons #navigator-toolbox[iconsize=large][mode=icons] > #nav-bar
+/*Big ol hacky fix here.  Used to be #navigator-toolbox[iconsize=large][mode=icons] > nav-bar but changed to toolbar so that
+the back button and zoom buttons would have proper hover coloring (instead of the bookmark blue hover).  */
+%define navbarLargeIcons #navigator-toolbox > toolbar
 %define forwardTransitionLength 150ms
 %define conditionalForwardWithUrlbar window:not([chromehidden~=toolbar]) #navigator-toolbox[iconsize=large][mode=icons] > :-moz-any(#nav-bar[currentset*="unified-back-forward-button"],#nav-bar:not([currentset])) > #unified-back-forward-button
 %define conditionalForwardWithUrlbar2 window:not([chromehidden~=toolbar]) #navigator-toolbox[iconsize=large][mode=icons] > :-moz-any(#nav-bar[currentset*="unified-back-forward-button"]:not([currentset*="unified-back-forward-button,urlbar-container"]),#nav-bar:not([currentset])) > #unified-back-forward-button
@@ -2977,7 +2979,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
   background-image: linear-gradient(rgba(0,0,0,.15) 1px, rgba(255,255,255,.15) 1px);
   background-size: 100% 2px;
   background-repeat: no-repeat;
-    background-color: #f1efe4;
+  background-color: #f1efe4;
 }
 
 #status-bar {
@@ -4270,13 +4272,13 @@ toolbar[brighttext] #addonbar-closebutton {
 #nav-bar + #customToolbars + #PersonalToolbar[collapsed=true] + #TabsToolbar[tabsontop=false]:last-child :-moz-any(@primaryToolbarButtons@) > toolbarbutton > .toolbarbutton-icon:not(:-moz-lwtheme) {
   list-style-image: var(--toolbarbutton-glass-image);
 }*/:-moz-any(#toolbar-menubar, #nav-bar[tabsontop=false]) :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button,#alltabs-button,#sync-button[status])) > .toolbarbutton-icon:not(:-moz-lwtheme),
- :-moz-any(#toolbar-menubar, #nav-bar[tabsontop=false]) :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button,)) > toolbarbutton > .toolbarbutton-icon:not(:-moz-lwtheme),
- #TabsToolbar[tabsontop=true] :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button,#alltabs-button,#new-tab-button,#sync-button[status])) > .toolbarbutton-icon:not(:-moz-lwtheme),
- #TabsToolbar[tabsontop=true] :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button)) > toolbarbutton > .toolbarbutton-icon:not(:-moz-lwtheme),
- #nav-bar + #customToolbars + #PersonalToolbar[collapsed=true] + #TabsToolbar[tabsontop=false]:last-child :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button,#alltabs-button,#new-tab-button,#sync-button[status])) > .toolbarbutton-icon:not(:-moz-lwtheme),
- #nav-bar + #customToolbars + #PersonalToolbar[collapsed=true] + #TabsToolbar[tabsontop=false]:last-child :-moz-any(@primaryToolbarButtons@):-moz-any(#back-button,#forward-button) > toolbarbutton > .toolbarbutton-icon:not(:-moz-lwtheme) {
-   list-style-image: var(--toolbarbutton-image);
- }
+   :-moz-any(#toolbar-menubar, #nav-bar[tabsontop=false]) :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button,)) > toolbarbutton > .toolbarbutton-icon:not(:-moz-lwtheme),
+   #TabsToolbar[tabsontop=true] :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button,#alltabs-button,#new-tab-button,#sync-button[status])) > .toolbarbutton-icon:not(:-moz-lwtheme),
+   #TabsToolbar[tabsontop=true] :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button)) > toolbarbutton > .toolbarbutton-icon:not(:-moz-lwtheme),
+   #nav-bar + #customToolbars + #PersonalToolbar[collapsed=true] + #TabsToolbar[tabsontop=false]:last-child :-moz-any(@primaryToolbarButtons@):not(:-moz-any(#back-button,#forward-button,#alltabs-button,#new-tab-button,#sync-button[status])) > .toolbarbutton-icon:not(:-moz-lwtheme),
+   #nav-bar + #customToolbars + #PersonalToolbar[collapsed=true] + #TabsToolbar[tabsontop=false]:last-child :-moz-any(@primaryToolbarButtons@):-moz-any(#back-button,#forward-button) > toolbarbutton > .toolbarbutton-icon:not(:-moz-lwtheme) {
+     list-style-image: var(--toolbarbutton-image);
+   }
 :-moz-any(#toolbar-menubar, #nav-bar[tabsontop=false]) :-moz-any(#back-button,#forward-button) > .toolbarbutton-icon:not(:-moz-lwtheme),
 :-moz-any(#toolbar-menubar, #nav-bar[tabsontop=false]) :-moz-any(#back-button,#forward-button) > toolbarbutton > .toolbarbutton-icon:not(:-moz-lwtheme),
 #TabsToolbar[tabsontop=true] :-moz-any(#back-button,#forward-button) > .toolbarbutton-icon:not(:-moz-lwtheme),
@@ -4565,11 +4567,13 @@ toolbar[brighttext] #addonbar-closebutton {
   padding-top:4px;
   padding-left: 15em;
 }
-#main-window[chromemargin^="0,"][sizemode=normal] #tabbrowser-tabs {
-  padding-top: 3px;
-  padding-left:2px;
+#tabbrowser-tabs {
+  padding-left:3px;
 }
-
+#main-window[chromemargin^="0,"][sizemode=normal] #tabbrowser-tabs {
+  padding-top: 5px;
+  padding-left:3px;
+}
 #PersonalToolbar{
   background-color:transparent!important;
 
@@ -4693,8 +4697,8 @@ toolbar[iconsize="small"]>#back-button>*,toolbar[iconsize="small"] > #forward-bu
   margin-right: 0px!important;
   margin-top: 0px!important;
   margin-bottom: 0px!important;
-    border-radius: 4px!important;
-    padding: 4px 2px 6px 2px!important;
+  border-radius: 4px!important;
+  padding: 4px 2px 6px 2px!important;
 }
 #forward-button:not([disabled]):hover{
   border-color: var(--toolbarbutton-border-color) !important;
@@ -4794,7 +4798,9 @@ content:"";
 }
 
 #msn-button{
-  -moz-image-region: rect(0 1545px 32px 1513px);
+  /*-moz-image-region: rect(0 1545px 32px 1513px);*/
+  list-style-image:url(chrome://browser/content/msn.png)!important;
+  -moz-image-region: auto!important;
 }
 
 
@@ -4961,7 +4967,7 @@ toolbar > #unified-back-forward-button{
   margin-left:0px!important;
 }
 toolbar > #unified-back-forward-button>*{
-  margin-left:24px!important; /* Janky fix for the PersonalToolbar, left margin offscreen bug...*/
+  margin-left:4px!important; /* Janky fix for the PersonalToolbar, left margin offscreen bug...*/
 }
 
 #unified-back-forward-button{
