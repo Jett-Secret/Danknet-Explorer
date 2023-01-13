@@ -1,8 +1,8 @@
 // ===| General |==============================================================
 
-pref("startup.homepage_welcome_url","https://www.palemoon.org/firstrun.shtml");
+pref("startup.homepage_welcome_url","http://jettsecret.neocities.org/dne/firstrun.html");
 
-pref("app.vendorURL", "https://www.palemoon.org/");
+pref("app.vendorURL", "http://jettsecret.neocities.org");
 
 
 // User Interface
@@ -34,6 +34,10 @@ pref("extensions.getAddons.cache.enabled", false);
 
 // ===| DOM |==================================================================
 
+// Set max script runtimes to sane values
+pref("dom.max_chrome_script_run_time", 90); //Some addons need ample time!
+pref("dom.max_script_run_time", 20); //Should be plenty for a page script to do what it needs
+
 // ============================================================================
 
 // ===| Plugins |==============================================================
@@ -62,10 +66,10 @@ pref("image.mem.decode_bytes_at_a_time", 65536); //larger chunks
 // Pale Moon Sync server URLs
 pref("services.sync.serverURL","https://pmsync.palemoon.org/sync/index.php/");
 pref("services.sync.jpake.serverURL","https://keyserver.palemoon.org/");
-pref("services.sync.termsURL", "https://www.palemoon.org/sync/terms.shtml");
-pref("services.sync.privacyURL", "https://www.palemoon.org/sync/privacy.shtml");
+pref("services.sync.termsURL", "http://www.palemoon.org/sync/terms.shtml");
+pref("services.sync.privacyURL", "http://www.palemoon.org/sync/privacy.shtml");
 pref("services.sync.statusURL", "https://pmsync.palemoon.org/status/");
-pref("services.sync.syncKeyHelpURL", "https://www.palemoon.org/sync/help/recoverykey.shtml");
+pref("services.sync.syncKeyHelpURL", "http://www.palemoon.org/sync/help/recoverykey.shtml");
 
 pref("services.sync.APILevel", 1); // FSyncMS doesn't support 'info/configuration' requests
 
@@ -75,15 +79,6 @@ pref("services.sync.APILevel", 1); // FSyncMS doesn't support 'info/configuratio
 
 // Make sure we shortcut out of a11y to save walking unnecessary code
 pref("accessibility.force_disabled", 1);
-
-// Enable Firefox compatmode by default in official channels.
-pref("general.useragent.compatMode", 2);
-pref("general.useragent.compatMode.gecko", true);
-pref("general.useragent.compatMode.firefox", true);
-pref("general.useragent.compatMode.version", "102.0");
-
-// Limit protocol fallback from TLS 1.3
-pref("security.tls.version.fallback-limit", 4);
 
 // ============================================================================
 
