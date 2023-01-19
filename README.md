@@ -20,7 +20,7 @@ DNE is a fork of the palemoon webbrowser, linked below, which is an excellent la
 ### Future Plans and Additions
 - MSN button should check if escargot (or nina) program is installed and if so install it.  Currently just opens a link
 - Mac and Linux builds
-- Change the sytle on menubar items when hovering (ie6 is blue on hover and borders are not rounded)
+- Change the style on menubar items when hovering (ie6 is blue on hover and borders are not rounded)
 - 
 
 ### Developer notes
