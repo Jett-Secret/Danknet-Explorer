@@ -842,7 +842,7 @@
       ${If} ${AtLeastWin7}
         ; No need to check the default on Win8 and later
         ${If} ${AtMostWin2008R2}
-          ; Check if the Pale Moon is the http handler for this user
+          ; Check if the Danknet Explorer is the http handler for this user
           SetShellVarContext current ; Set SHCTX to the current user
           ${IsHandlerForInstallDir} "http" $R9
           ${If} $TmpVal == "HKLM"

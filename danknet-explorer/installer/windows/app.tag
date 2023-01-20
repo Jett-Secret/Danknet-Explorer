@@ -1,4 +1,4 @@
 ;!@Install@!UTF-8!
-Title="Pale Moon"
+Title="Danknet Explorer"
 RunProgram="setup.exe"
 ;!@InstallEnd@!
