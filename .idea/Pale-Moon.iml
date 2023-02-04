@@ -8,6 +8,9 @@
       <excludeFolder url="file://$MODULE_DIR$/obj-i686-pc-mingw32/dist" />
       <excludeFolder url="file://$MODULE_DIR$/obj-x86_64-pc-mingw32" />
       <excludeFolder url="file://$MODULE_DIR$/obj-i686-pc-mingw32" />
+      <excludeFolder url="file://$MODULE_DIR$/config" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/other-licenses" />
     </content>
     <content url="file://$MODULE_DIR$/obj-i686-pc-mingw32/dist" />
     <content url="file://$MODULE_DIR$/obj-i686-pc-mingw32/dist/bin/browser/chrome/browser" />
