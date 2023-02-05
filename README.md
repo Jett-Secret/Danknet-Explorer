@@ -28,6 +28,20 @@ Much of the UI development takes place in the /palemoon/themes/ folders.  shared
 
 Instead of building every single time you make changes, which can take a long time, you can make changes in the obj.*/dist/bin/browser/chrome/browser/skin/classic/browser/browser.css and these changes will (usually) be reflected in the ``run`` command not requiring ``build``.  But make sure to transfer any changes over to the corresponding file otherwise building will completely clobber the changes.
 
+### Before building
+Make sure you have the correct settings in the .mozconfig file (see below) and have correctly downloaded the source code.  To do that use the following commands:
+```
+git clone https://github.com/Jett-Secret/Danknet-Explorer.git
+git submodule init
+git submodule update
+```
+You will also need the MozBuild application (see below).  Normally, as with palemoon, this build will not work on its own.  This is because there does not exist a .mozconfig file in the palemoon repository. *this* is because the .mozconfig file varies per system and architecture.  I've included the default .mozconfig currently in use for windows 10/11.  Further builds for different systems will likely need a different configuration.
+
+### Moz Build
+In order to build you need to install the moz-build application version 3.4.  You can download it [here](https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-3.4.exe).  cd To the corresponding directory that you pulled this repository from and run ./mach build.  The build can take a long time
+
+##### .mozconfig
+To use the ```mach``` system offered by firefox you need to specify a config file.  A sample one for windows 10/11 is included in this repository.  See the links in the Pale Moon Readme below for a linux build .mozconfig and better instructions if you want to try building for linux (everything will look wrong and bad I promise, but feel free to try it and tweak it and make a pull request if you'd like)
 _ _ _
 # Pale Moon Readme
 
