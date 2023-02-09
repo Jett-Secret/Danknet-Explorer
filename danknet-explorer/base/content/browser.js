@@ -1811,6 +1811,8 @@ function BrowserTryToCloseWindow()
 function loadURI(uri, referrer, postData, allowThirdPartyFixup, referrerPolicy,
                  originPrincipal, forceAboutBlankViewerInCurrent,
                  triggeringPrincipal) {
+  alert("load")
+
   if (postData === undefined) {
     postData = null;
   }
@@ -4305,6 +4307,7 @@ nsBrowserAccess.prototype = {
     var newWindow = null;
     var isExternal = !!(aContext & Ci.nsIBrowserDOMWindow.OPEN_EXTERNAL);
 
+    alert("hello")
     if (aOpener && isExternal) {
       Cu.reportError("nsBrowserAccess.openURI did not expect an opener to be " +
                      "passed if the context is OPEN_EXTERNAL.");
