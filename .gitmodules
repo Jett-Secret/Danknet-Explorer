@@ -1,0 +1,6 @@
+[submodule "DNE-UXP-Platform"]
+	path = DNE-UXP-Platform
+	url = https://github.com/Jett-Secret/DNE-UXP-Platform.git
+[submodule "platform"]
+	path = platform
+	url = https://github.com/Jett-Secret/DNE-UXP-Platform.git
