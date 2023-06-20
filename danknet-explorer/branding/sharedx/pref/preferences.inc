@@ -1,8 +1,14 @@
 // ===| General |==============================================================
 
+<<<<<<< HEAD:danknet-explorer/branding/sharedx/pref/preferences.inc
 pref("startup.homepage_welcome_url","http://jettsecret.neocities.org/dne/firstrun.html");
 
 pref("app.vendorURL", "http://jettsecret.neocities.org");
+=======
+pref("startup.homepage_welcome_url","https://www.palemoon.org/firstrun.shtml");
+
+pref("app.vendorURL", "https://www.palemoon.org/");
+>>>>>>> upstream/release:palemoon/branding/shared/pref/preferences.inc
 
 
 // User Interface
@@ -66,10 +72,10 @@ pref("image.mem.decode_bytes_at_a_time", 65536); //larger chunks
 // Pale Moon Sync server URLs
 pref("services.sync.serverURL","https://pmsync.palemoon.org/sync/index.php/");
 pref("services.sync.jpake.serverURL","https://keyserver.palemoon.org/");
-pref("services.sync.termsURL", "http://www.palemoon.org/sync/terms.shtml");
-pref("services.sync.privacyURL", "http://www.palemoon.org/sync/privacy.shtml");
+pref("services.sync.termsURL", "https://www.palemoon.org/sync/terms.shtml");
+pref("services.sync.privacyURL", "https://www.palemoon.org/sync/privacy.shtml");
 pref("services.sync.statusURL", "https://pmsync.palemoon.org/status/");
-pref("services.sync.syncKeyHelpURL", "http://www.palemoon.org/sync/help/recoverykey.shtml");
+pref("services.sync.syncKeyHelpURL", "https://www.palemoon.org/sync/help/recoverykey.shtml");
 
 pref("services.sync.APILevel", 1); // FSyncMS doesn't support 'info/configuration' requests
 
