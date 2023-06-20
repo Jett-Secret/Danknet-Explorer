@@ -21,7 +21,6 @@ DNE is a fork of the palemoon webbrowser, linked below, which is an excellent la
 - MSN button should check if escargot (or nina) program is installed and if so install it.  Currently just opens a link
 - Mac and Linux builds
 - Change the style on menubar items when hovering (ie6 is blue on hover and borders are not rounded)
-- 
 
 ### Developer notes
 Much of the UI development takes place in the /palemoon/themes/ folders.  shared/browser.inc are resources shared between the different platforms.  The OS named folders obviously correspond to those OS.  UI development mostly takes place in the browser.css files.  I note this here because it took me hours to figure that out :P
