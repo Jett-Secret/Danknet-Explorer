@@ -3,14 +3,10 @@
 #include ../../shared/pref/preferences.inc
 #include ../../shared/pref/uaoverrides.inc
 
-pref("startup.homepage_override_url","https://jettsecret.neocities.org/dne/");
-pref("app.releaseNotesURL", "https://jettsecret.neocities.org/dne/download/downloads.html");
+pref("startup.homepage_override_url","https://www.palemoon.org/releasenotes.shtml");
+pref("app.releaseNotesURL", "https://www.palemoon.org/releasenotes.shtml");
 
-// Enable Firefox compatmode by default.
-pref("general.useragent.compatMode", 2);
-pref("general.useragent.compatMode.gecko", true);
-pref("general.useragent.compatMode.firefox", true);
-pref("general.useragent.compatMode.version", "102.0");
+// Firefox compatmode is set in shared prefs.
 
 // Enable dynamic UA updates
 pref("general.useragent.updates.enabled", true);
@@ -37,11 +33,11 @@ pref("app.update.promptWaitTime", 86400);
 
 // URL user can browse to manually if for some reason all update
 // installation attempts fail.
-pref("app.update.url.manual", "http://www.palemoon.org/");
+pref("app.update.url.manual", "https://www.palemoon.org/");
 
 // A default value for the "More information about this update" link
 // supplied in the "An update is available" page of the update wizard. 
-pref("app.update.url.details", "https://jettsecret.neocities.org/dne/Info/info.html");
+pref("app.update.url.details", "https://www.palemoon.org/releasenotes.shtml");
 #else
 // Updates disabled (Mac, etc.)
 pref("app.update.enabled", false);

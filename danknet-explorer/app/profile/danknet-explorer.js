@@ -483,6 +483,10 @@ pref("browser.tabs.delayHidingAudioPlayingIconMS", 3000);
 // window is enabled.
 pref("browser.tabs.allowTabDetach", true);
 
+// Whether to fade tab labels instead of using ellipses when cutting off
+// long page titles.
+pref("browser.tabs.fadeLabels", true);
+
 pref("browser.allTabs.previews", true);
 pref("browser.allTabs.hidePinnedTabs", false);
 pref("browser.ctrlTab.previews", true);
@@ -523,6 +527,11 @@ pref("dom.disable_window_flip",                   true);
 // Disable touch events on Desktop Firefox by default until they are properly
 // supported (bug 736048)
 pref("dom.w3c_touch_events.enabled",        0);
+
+// Whether performance.GetEntries* will contain an entry for the active document
+// Disabled by default in Pale Moon (unlike in UXP) since it can be used for
+// tracking/profiling.
+pref("dom.enable_performance_navigation_timing", false);
 
 // popups.policy 1=allow,2=reject
 pref("privacy.popups.policy",               1);

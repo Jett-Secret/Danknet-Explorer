@@ -74,6 +74,11 @@
 #ifdef GKMEDIAS_SHARED_LIBRARY
 @BINPATH@/@DLL_PREFIX@gkmedias@DLL_SUFFIX@
 #endif
+#ifndef MOZ_SYSTEM_HUNSPELL
+#ifndef XP_SOLARIS
+@BINPATH@/@DLL_PREFIX@hunspell@DLL_SUFFIX@
+#endif
+#endif
 #ifndef MOZ_SYSTEM_NSPR
 #ifndef MOZ_FOLD_LIBS
 @BINPATH@/@DLL_PREFIX@nspr4@DLL_SUFFIX@
@@ -105,6 +110,9 @@
 #endif
 #ifdef MOZ_ICU_DATA_ARCHIVE
 @RESPATH@/@ICU_DATA_FILE@
+#endif
+#ifdef MOZ_SHARED_ICU
+@BINPATH@/@DLL_PREFIX@icu@MOZ_ICU_VERSION@@DLL_SUFFIX@
 #endif
 #ifdef MOZ_GTK3
 @BINPATH@/@DLL_PREFIX@mozgtk@DLL_SUFFIX@
@@ -334,12 +342,12 @@
 
 ; Shutdown Terminator
 
-#if defined(CLANG_CXX)
-#if defined(MOZ_ASAN) || defined(MOZ_TSAN)
-@BINPATH@/llvm-symbolizer
+#ifndef XP_MACOSX
+#if defined(MOZ_ASAN) || defined(MOZ_TSAN) || defined(MOZ_LSAN) || defined(MOZ_UBSAN)
+@BINPATH@/llvm-symbolizer@BIN_SUFFIX@
 #endif
 #endif
 
-#if defined(MOZ_ASAN) && defined(CLANG_CL)
+#if defined(MOZ_ASAN) && defined(XP_WIN)
 @BINPATH@/clang_rt.asan_dynamic-*.dll
 #endif
