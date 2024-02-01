@@ -1,0 +1,17 @@
+#filter substitution
+<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<!-- This is an automatically generated file.
+     It will be read and overwritten.
+     DO NOT EDIT! -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>@bookmarks_title@</TITLE>
+<H1>@bookmarks_heading@</H1>
+
+<DL><p>
+    <DT><H3 PERSONAL_TOOLBAR_FOLDER="true" ID="rdf:#$FvPhC3">@bookmarks_toolbarfolder@</H3>
+<DD>@bookmarks_toolbarfolder_description@
+    <DL><p>
+        <DT><A HREF="http://jettsecret.neocities.org/" ICON_URI="http://jettsecret.neocities.org/maskicon.png">Jett Secret</A>
+        <DT><A HREF="http://jettsecret.neocities.org/dne/" ICON_URI="http://jettsecret.neocities.org/dne/ms.png" LAST_CHARSET="UTF-8">Danknet Explorer</A>
+    </DL><p>
+</DL><p>
