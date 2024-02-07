@@ -4,12 +4,12 @@
 
 #aboutPMDialogContainer {
   width: 700px;
-  height: 410px;
+  height: 580px;
 }
 
 #aboutVersionBox {
   font-family: Arial, helvetica;
-  height: 38 px;
+  height: 24 px;
 }
 
 #aboutVersion {
@@ -55,6 +55,7 @@
 .text-link:focus {
   margin: 0px;
   padding: 0px;
+  color:blue;
 }
 
 .bottom-link,
@@ -63,7 +64,7 @@
   text-decoration: none !important;
   padding: 4px;
   border-radius: 3px;
-  color: #244C8A;
+  color: red;
   background-color: rgba(240, 240, 240, .7);
   margin: 0 40px;
   transition: background-color 0.5s ease-out;

@@ -3,14 +3,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #aboutDialogContainer {
-  background-image: url("chrome://branding/content/about-background.png");
+  background-image: url("chrome://branding/content/about-background.jpg");
   background-repeat: no-repeat;
   background-color: rgb(10,17,37);
   color: #fff;
+  background-color:red;
+  height:410px;
 }
 
 .text-link {
-  color: #fff !important;
+  color: blue !important;
   text-decoration: underline;
 }
 

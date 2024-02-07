@@ -37,7 +37,7 @@
 
   <vbox id="aboutPMDialogContainer" flex="1">
     <vbox id="aboutHeaderBox" />
-    <vbox id="aboutVersionBox" flex="3">
+    <vbox id="aboutVersionBox" flex="1">
 #ifdef HAVE_64BIT_BUILD
 #expand <label id="aboutVersion">Version: __MOZ_APP_VERSION__ (64-bit)</label>
 #else
@@ -47,27 +47,26 @@
         <label id="distributionId" class="text-blurb"/>
 
     </vbox>
+	<vbox id="aboutDialogContainer" flex="8"></vbox>
     <vbox id="aboutTextBox" flex="1">
         <description class="text-credits text-center">
 #if defined(MOZ_OFFICIAL_BRANDING) || defined(MC_OFFICIAL)
 #ifdef MC_PRIVATE_BUILD
-          This is a private build of Pale Moon. If you did not manually build this copy from source yourself, then please download an official version from the <label class="text-link" href="http://www.palemoon.org/">Pale Moon website</label>.
+          This is a private build of Danknet Explorer. If you did not manually build this copy from source yourself, then please download an official version from the <label class="text-link" href="https://danknetexplorer.neocities.org/">Danknet Explorer website</label>.
 #else
-          <label class="text-link" href="http://www.palemoon.org">Pale Moon</label> is released by Moonchild Productions.
-        </description>
-        <description class="text-credits text-center">
-          Special thanks to all our supporters and donors for making this browser possible!
+          <label class="text-link" href="http://danknetexplorer.neocities.org">Danknet Explorer</label> is released by Jett Secret.
         </description>
         <description class="text-credits">
-          If you wish to contribute, please consider helping out by providing support to other users on the <label class="text-link" href="https://forum.palemoon.org/">Pale Moon forum</label>
+            Danknet Explorer is built on the <a href="http://www.palemoon.org/">Pale Moon browser project</a>.
+          If you wish to contribute to that project, please consider helping out by providing support to other users on the <label class="text-link" href="https://forum.palemoon.org/">Pale Moon forum</label>
           or getting involved in our development by tackling some of the issues found in the issue trackers for <label class="text-link" href="https://repo.palemoon.org/MoonchildProductions/Pale-Moon/issues">Pale Moon</label>
-          and <label class="text-link" href="https://repo.palemoon.org/MoonchildProductions/UXP/issues">UXP</label>.
+          and <label class="text-link" href="https://repo.palemoon.org/MoonchildProductions/UXP/issues">UXP</label>.  If you would like to contribute to Danknet Explorer directly, checkout the <a href="https://github.com/Jett-Secret/Danknet-Explorer">Danknet Explorer Git Hub repository</a> or join the discord.
 #endif
 #else
           &brandFullName; is released by &vendorShortName;.
         </description>
         <description class="text-credits">
-          This is an unofficial build of Pale Moon. For official builds, please go to <label class="text-link" href="http://www.palemoon.org/">the Pale Moon website</label>.
+          This is an unofficial build of Danknet Explorer. For official builds, please go to <label class="text-link" href="https://danknetexplorer.neocities.org/">the Danknet Explorer website</label>.
 #endif
         </description>    
     </vbox>

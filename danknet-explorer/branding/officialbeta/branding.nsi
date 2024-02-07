@@ -6,5 +6,5 @@
 !define CompanyName           "Jett Secret"
 !define URLInfoAbout          "https://jettsecret.neocities.org/dne/Info/info.html"
 !define URLUpdateInfo         "https://jettsecret.neocities.org/dne/Info/info.html"
-!define HelpLink              "https://forum.palemoon.org/viewforum.php?f=24"
+!define HelpLink              "https://jettsecret.neocities.org/dne/Info/info.html"
 !define URLSystemRequirements "https://jettsecret.neocities.org/dne/SysReq/sysreq.html"

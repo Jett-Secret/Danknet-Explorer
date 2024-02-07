@@ -3264,7 +3264,7 @@ toolbar[brighttext] #addonbar-closebutton {
      background-color:transparent;
 
      background-image: linear-gradient(90deg, #f5f4f2, #eeebda);
-   }}
+   }
 
 /* ==== Windows 10 styling ==== */
 
@@ -3764,19 +3764,19 @@ toolbar[brighttext] #addonbar-closebutton {
     -moz-appearance: -moz-win-exclude-glass;
   }
 }
-/* ==== Windows 10 styling ====
+/* ==== Windows 10 styling ==== */
 
 @media (-moz-os-version: windows-win10) {
-  /* Draw XUL caption buttons and background on Win10
+  /* Draw XUL caption buttons and background on Win10 */
   @media (-moz-windows-accent-color-applies: 0) {
-    /* Default styling for when no accent color is applied
+    /* Default styling for when no accent color is applied */
     #main-window:not(:-moz-window-inactive):not(:-moz-lwtheme) {
-      background-image:linear-gradient(180deg, #2492ff 10px, #0054df 13px, #0053e7 22px, #0068fd 30px, #0347cc 34px) !important;
-      background-size: 100% 50%;
+      /*background-image:linear-gradient(180deg, #2492ff 10px, #0054df 13px, #0053e7 22px, #0068fd 30px, #0347cc 34px) !important;
+      */background-size: 100% 50%;
     }
     #main-window[sizemode=normal]:not(:-moz-window-inactive):not(:-moz-lwtheme) {
-      background-image:linear-gradient(180deg, #2492ff 2px, #0054df 5px, #0053e7 20px, #0068fd 26px, #0347cc 33px) !important;
-      background-size: 100% 50%;
+      /*background-image:linear-gradient(180deg, #2492ff 2px, #0054df 5px, #0053e7 20px, #0068fd 26px, #0347cc 33px) !important;
+      */background-size: 100% 50%;
     }
 
     #main-window:not(:-moz-window-inactive):not(:-moz-lwtheme) > *{
@@ -3784,9 +3784,9 @@ toolbar[brighttext] #addonbar-closebutton {
       background-image: linear-gradient(90deg, #f5f4f2, #eeebda);
     }
     #main-window:not(:-moz-window-inactive):not(:-moz-lwtheme) > #titlebar{
-      /*background-color: white !important;
-      background-image:linear-gradient(180deg, #2492ff 10%, #0053e7 80%,#2492ff 10%,#194399) !important;
-
+      /**/background-color: white !important;
+      /*background-image:linear-gradient(180deg, #2492ff 10%, #0053e7 80%,#2492ff 10%,#194399) !important;
+*/
       background-image:linear-gradient(180deg, #f3f3f3 10%, #cbcbcb 80%,#f3f3f3 10%,#b9b9b9) !important;
     }
     :root:not(:-moz-window-inactive):not(:-moz-lwtheme) {
@@ -3836,17 +3836,17 @@ toolbar[brighttext] #addonbar-closebutton {
   }
 
   @media (-moz-windows-accent-color-applies) {
-    /* Styling for when an accent color is applied to the titlebar
+    /* Styling for when an accent color is applied to the titlebar */
     #main-window:not(:-moz-window-inactive):not(:-moz-lwtheme) {
       background-color:-moz-win-accentcolor;
-      background-image:linear-gradient(180deg, #2121214a 10px, #dddddd1a 13px, #d5d5d500 22px, #d3d3d32a 31px, #0000004a 36px) !important;
-      /*background-image:linear-gradient(180deg, #2492ff 10px, #0054df 13px, #0053e7 22px, #0068fd 30px, #0347cc 34px) !important;
+      /*background-image:linear-gradient(180deg, #2121214a 10px, #dddddd1a 13px, #d5d5d500 22px, #d3d3d32a 31px, #0000004a 36px) !important;
+      /*background-image:linear-gradient(180deg, #2492ff 10px, #0054df 13px, #0053e7 22px, #0068fd 30px, #0347cc 34px) !important;*/
       background-size: 100% 50%;
     }
     #main-window[sizemode=normal]:not(:-moz-window-inactive):not(:-moz-lwtheme) {
       background-color: -moz-win-accentcolor;
-      background-image:linear-gradient(180deg, #2121214a 2px, #dddddd1a 5px, #d5d5d500 20px, #d3d3d32a 26px, #0000004a 33px) !important;
-      /*background-image:linear-gradient(180deg, #2492ff 2px, #0054df 5px, #0053e7 20px, #0068fd 26px, #0347cc 33px) !important;
+      /*background-image:linear-gradient(180deg, #2121214a 2px, #dddddd1a 5px, #d5d5d500 20px, #d3d3d32a 26px, #0000004a 33px) !important;
+      background-image:linear-gradient(180deg, #2492ff 2px, #0054df 5px, #0053e7 20px, #0068fd 26px, #0347cc 33px) !important;*/
       background-size: 100% 50%;
     }
 
@@ -3890,7 +3890,7 @@ toolbar[brighttext] #addonbar-closebutton {
     }
 
     @media (-moz-windows-accent-color-is-dark) {
-      /* dark accent color
+      /* dark accent color */
       #titlebar-min,
       #minimize-button {
         list-style-image: url(chrome://browser/skin/caption-buttons.svg#minimize-highlight);
@@ -3939,7 +3939,7 @@ toolbar[brighttext] #addonbar-closebutton {
 
   /* If we don't have [chromemargin], it means the menubar is active; set the
      window background to transparent in that case to match it with the dwm
-     color and prevent a drawing delay between title bar and UI region
+     color and prevent a drawing delay between title bar and UI region*/
   #main-window:not([chromemargin]):not(:-moz-lwtheme) {
     background-color: transparent;
   }
@@ -3995,7 +3995,7 @@ toolbar[brighttext] #addonbar-closebutton {
     transition: none;
   }
 
-  /* inactive window
+  /* inactive window */
 
   #titlebar-min:-moz-window-inactive:not(:-moz-lwtheme) {
     list-style-image: url(chrome://browser/skin/caption-buttons.svg#minimize-inactive);
@@ -4022,7 +4022,7 @@ toolbar[brighttext] #addonbar-closebutton {
     transition: none;
   }
 
-  /* light persona
+  /* light persona */
 
   .titlebar-button:-moz-lwtheme-darktext:hover,
   #window-controls > toolbarbutton:not(#close-button):-moz-lwtheme-darktext:hover {
@@ -4058,7 +4058,7 @@ toolbar[brighttext] #addonbar-closebutton {
     list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-outline);
   }
 
-  /* dark persona
+  /* dark persona */
 
   .titlebar-button:-moz-lwtheme-brighttext:hover,
   #window-controls > toolbarbutton:not(#close-button):-moz-lwtheme-brighttext:hover {
@@ -4095,7 +4095,7 @@ toolbar[brighttext] #addonbar-closebutton {
   }
 
   /* the 12px image renders a 10px icon, and the 10px upscaled gets rounded to 12.5, which
-   * rounds up to 13px, which makes the icon one pixel too big on 1.25dppx. Fix:
+   * rounds up to 13px, which makes the icon one pixel too big on 1.25dppx. Fix:*/
   @media (min-resolution: 1.20dppx) and (max-resolution: 1.45dppx) {
     .titlebar-button > .toolbarbutton-icon {
       width: 11.5px;
@@ -4103,7 +4103,7 @@ toolbar[brighttext] #addonbar-closebutton {
     }
   }
 
-  /* 175% dpi should result in the same device pixel sizes as 150% dpi.
+  /* 175% dpi should result in the same device pixel sizes as 150% dpi.*/
   @media (min-resolution: 1.70dppx) and (max-resolution: 1.95dppx) {
     .titlebar-button {
       padding-left: 14.1px;
@@ -4116,7 +4116,7 @@ toolbar[brighttext] #addonbar-closebutton {
     }
   }
 
-  /* 225% dpi should result in the same device pixel sizes as 200% dpi.
+  /* 225% dpi should result in the same device pixel sizes as 200% dpi.*/
   @media (min-resolution: 2.20dppx) and (max-resolution: 2.45dppx) {
     .titlebar-button {
       padding-left: 15.3333px;
@@ -4129,7 +4129,7 @@ toolbar[brighttext] #addonbar-closebutton {
     }
   }
 
-  /* 275% dpi should result in the same device pixel sizes as 250% dpi.
+  /* 275% dpi should result in the same device pixel sizes as 250% dpi.*/
   @media (min-resolution: 2.70dppx) and (max-resolution: 2.95dppx) {
     .titlebar-button > .toolbarbutton-icon {
       width: 10.8px;
@@ -4142,8 +4142,8 @@ toolbar[brighttext] #addonbar-closebutton {
     margin-bottom: 5px;
   }
 }
-*/
-/* ==== Windows Vista/7/8 styling ====
+
+/* ==== Windows Vista/7/8 styling ====*/
 
   @media (-moz-os-version: windows-vista),
          (-moz-os-version: windows-win7),
@@ -4151,18 +4151,18 @@ toolbar[brighttext] #addonbar-closebutton {
     /* Make sure the native margins are correct on Win Vista/7/8.
      * We can't use -moz-win-glass there because the border sizing would
      * not be correct.
-    #main-window {
+    #main-window {*/
       -moz-appearance: -moz-win-borderless-glass;
     }
 
-    /* These should be hidden w/ glass enabled. Windows draws its own buttons.
+    /* These should be hidden w/ glass enabled. Windows draws its own buttons.*/
     .titlebar-button {
       display: none;
     }
 
     /* The borders on the glass frame are ours, and inside #browser, and on
      * vista and win7 we want to make sure they are "glassy", so we can't use
-     * #browser as the exclude-glass container. We use #appcontent instead.
+     * #browser as the exclude-glass container. We use #appcontent instead.*/
     #browser {
       -moz-appearance: none;
     }
@@ -4175,7 +4175,7 @@ toolbar[brighttext] #addonbar-closebutton {
       margin-top: 0;
     }
 
-    /* Artificially draw window borders that are covered by lwtheme, see bug 591930.
+    /* Artificially draw window borders that are covered by lwtheme, see bug 591930.*/
     #main-window[sizemode="normal"] > #titlebar > #titlebar-content:-moz-lwtheme {
       border-top: 2px solid;
       -moz-border-top-colors: @glassActiveBorderColor@ rgba(255,255,255,.6);
@@ -4198,7 +4198,7 @@ toolbar[brighttext] #addonbar-closebutton {
     }
   }
 
-/* ==== Windows Vista/7 (true glass) styling ====
+/* ==== Windows Vista/7 (true glass) styling ====*/
 
   @media (-moz-os-version: windows-vista),
          (-moz-os-version: windows-win7) {
@@ -4224,10 +4224,10 @@ toolbar[brighttext] #addonbar-closebutton {
     }
 }
 
-/* ==== Windows 8/10 (flat color) styling ====
+/* ==== Windows 8/10 (flat color) styling ====*/
 
   @media (-moz-os-version: windows-win8) {
-    /* Use a light text styling on dark window frames
+    /* Use a light text styling on dark window frames*/
     :root[darkwindowframe="true"]:not(:-moz-lwtheme):not(:-moz-window-inactive) {
       --window-text-color: white;
     }
@@ -4235,7 +4235,7 @@ toolbar[brighttext] #addonbar-closebutton {
 
   @media (-moz-os-version: windows-win8),
          (-moz-os-version: windows-win10) {
-    /* Fade text stylings on window inactivity
+    /* Fade text stylings on window inactivity*/
     :root:not(:-moz-lwtheme):-moz-window-inactive {
       --window-text-color: rgba(0, 0, 0, 0.5);
     }
@@ -4447,7 +4447,7 @@ toolbar[brighttext] #addonbar-closebutton {
     text-shadow: white -1px -1px .35em, white -1px 1px .35em, white 1px 1px .35em, white 1px -1px .35em;
   }
 }
-
+}
 @media not all and (-moz-windows-compositor) {
   @media (-moz-windows-default-theme) {
     #main-window {
